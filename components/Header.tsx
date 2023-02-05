@@ -14,12 +14,7 @@ const Header:any = () => {
   ]
   return (
     <div>
-      <Head>
       
-      <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Satisfy&family=Yeon+Sung&display=swap" rel="stylesheet"/>
-    </Head>
      <div className="navbar bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">

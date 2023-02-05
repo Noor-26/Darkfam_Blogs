@@ -1,6 +1,6 @@
 'use client'
 import { usePreview } from "../lib/sanity.preview"
-import BlogPosts from "./BlogPosts"
+import BlogPosts from "./BlogPost"
 
 
 
