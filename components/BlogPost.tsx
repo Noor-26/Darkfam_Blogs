@@ -2,6 +2,7 @@ import moment from "moment"
 import {AiOutlineFieldTime} from 'react-icons/ai';
 import imgUrl from "../lib/imgUrl";
 import Image from "next/image"
+import ClientLink from "./ClientLink";
 
 const BlogPost = ({blog}:any) => {
   return (
@@ -12,7 +13,9 @@ const BlogPost = ({blog}:any) => {
             </div>
             <div className="card-body w-[50%]">
               <h2 className="card-title text-3xl ">{blog?.title}</h2>
-              <p className='text-[14px] line-clamp-5 font-semibold'>{blog?.description}</p>
+              <text className='text-[14px] line-clamp-5 font-semibold'>{blog?.description}</text>
+              <div className="flex justify-between">
+
             <div className='flex items-center'>
 
             <div className='flex items-center ml-2 mr-4'>
@@ -31,10 +34,18 @@ const BlogPost = ({blog}:any) => {
             </div>
 
             </div>
+            <ClientLink route={`/posts/${blog.slug.current}`}>
+            <button className="page_btn flex">
+    <span className="hover-underline-animation"> read more </span>
+    <svg viewBox="0 0 46 16" height="10" width="25" xmlns="http://www.w3.org/2000/svg" id="arrow-horizontal" fill="#B4C6EF">
+        <path transform="translate(30)" d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z" data-name="Path 10" id="Path_10"></path>
+    </svg>
+</button>
+            </ClientLink>
+              </div>
 
             </div>
 
-            {/* <p>hello</p> */}
           </div>
   )
 }
