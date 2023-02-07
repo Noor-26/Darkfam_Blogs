@@ -15,6 +15,7 @@ export const query = groq`
   categories[]->,
 } | order(_createdAt desc)
 `
+export const revalidate = 60; // revalidating site after 60 seconds
 const page = async () => {
   if (previewData()) {
     return (
@@ -25,12 +26,11 @@ const page = async () => {
   }
 
   const blogs = await client.fetch(query)
-  console.log("blogs",blogs)
   return (
     <div>
       <Banner/>
      
-      <div  className='w-full md:w-[70%] py-10'>
+      <div  className='w-full md:w-[70%] mx-auto grid grid-cols-1 lg:grid-cols-2 py-10'>
 
       {
     

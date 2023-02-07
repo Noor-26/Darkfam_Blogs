@@ -1,8 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Poppins:wght@500&display=swap');
-*{
+
+.poppins{
     font-family: 'Poppins', sans-serif;
   }
  
@@ -11,6 +11,18 @@
   }
   .head_text{
     font-family: 'Yeon Sung', cursive;
+  }
+  strong{
+    letter-spacing: 1px;
+  }
+  /* for author name */
+
+  .author_name{
+    font-family: 'Noto Serif Ahom', serif;
+  }
+  /* for choose blog headers  */
+  .heading_text{
+    font-family: 'Lobster Two', cursive;
   }
 
   /* button link */
@@ -22,16 +34,18 @@
   
   .page_btn span {
     padding-bottom: 7px;
-    letter-spacing: 4px;
+    letter-spacing: 1px;
     font-size: 12px;
     padding-right: 8px;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
   
   .page_btn svg {
     transform: translateX(-8px);
     transition: all 0.3s ease;
     color:#B4C6EF;
+    position: relative;
+    bottom: 3px;
   }
   
   .page_btn:hover svg {
@@ -46,6 +60,7 @@
     position: relative;
     color: #B4C6EF;
     padding-bottom: 20px;
+    
   }
   
   .hover-underline-animation:after {

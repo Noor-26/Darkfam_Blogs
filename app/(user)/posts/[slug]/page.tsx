@@ -1,6 +1,8 @@
 import { PortableText } from "@portabletext/react"
 import { groq } from "next-sanity"
+import Image from "next/image"
 import { RichTextComponents } from "../../../../components/RichTextComponents"
+import imgUrl from "../../../../lib/imgUrl"
 
 import { client } from "../../../../lib/sanity.client"
 
@@ -9,7 +11,7 @@ params:{
     slug:string
 }
 }
-
+export const revalidate = 60; // revalidating site after 60 seconds
 export const generateStaticParams = async () => {
 const query = groq ` 
 *[_type == 'post']{
@@ -18,6 +20,7 @@ const query = groq `
 `
 const slugs: any = await client.fetch(query);
 const slugRoutes = slugs.map((slug: { slug: { current: any } }) => slug.slug.current)
+return slugRoutes.map((slug:any) => ({slug}))
 }
 
 
@@ -32,7 +35,10 @@ const Posts = async ({params:{slug}} : Props) => {
 
     const blog : any = await client.fetch(query,{slug})
   return (
-    <div>
+    <div className="max-w-6xl mx-auto px-10">
+         <div className="relative w-full  h-[20rem]  mx-auto">
+                    <Image src={imgUrl(blog.mainImage).url()} alt="blog image" className='object-cover rounded-lg' fill  />  
+                </div>
       <PortableText value={blog.body} components={RichTextComponents}/>
     </div>
   )

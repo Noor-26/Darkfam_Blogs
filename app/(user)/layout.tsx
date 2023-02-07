@@ -1,25 +1,21 @@
 import Header from '../../components/Header';
 import '../../styles/globals.css';
-import { Poppins } from '@next/font/google'
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  weight: ['500','600']
-})
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html data-theme="night">
-      <head/>
+    <html >
+   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Noto+Serif+Ahom&family=Poppins:wght@500&family=Satisfy&family=Yeon+Sung&display=swap" rel="stylesheet"></link>
+</head>
       
      
       
-            <body className={`${poppins.variable} font-sans font-semibold`}>
+            <body >
               <Header/>
               {children}
               </body>
