@@ -1,10 +1,23 @@
+import { groq } from 'next-sanity';
 import Header from '../../components/Header';
 import '../../styles/globals.css';
-export default function RootLayout({
+import { client } from "../../lib/sanity.client";
+
+export const query = groq`
+*[_type == 'post']{
+  ...,
+  author->,
+  categories[]->,
+} | order(_createdAt desc)
+`
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const blogs = await client.fetch(query)
+
   return (
     <html >
    <head>
@@ -16,7 +29,7 @@ export default function RootLayout({
      
       
             <body >
-              <Header/>
+              <Header blogs={blogs}/>
               {children}
               </body>
     </html>
