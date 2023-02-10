@@ -32,13 +32,15 @@ const Posts = async ({params:{slug}} : Props) => {
   categories[]->,
 } 
     `
-// *[_type == "post" && author._ref in *[_type=="author" && name=="Darkfam"]._id ]{...}
+  
     const blog : any = await client.fetch(query,{slug})
   return (
     <div className="max-w-6xl mx-auto px-10">
          <div className="relative w-full h-[17rem] md:h-[20rem] my-5  mx-auto">
                     <Image src={imgUrl(blog.mainImage).url()} alt="blog image" className='object-cover rounded-lg' fill  />  
                 </div>
+             
+                  
       <PortableText value={blog.body} components={RichTextComponents}/>
     </div>
   )

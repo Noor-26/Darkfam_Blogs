@@ -30,7 +30,7 @@ const page = async () => {
     <div>
       <Banner/>
      
-      <div  className='w-full md:w-[70%] mx-auto grid grid-cols-1 lg:grid-cols-2 py-10'>
+      <div  className='w-full md:w-[70%] mx-auto grid gap-3 justify-center lg:grid-cols-2 px-4 py-10'>
 
       {
     
