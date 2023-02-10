@@ -45,7 +45,7 @@
     transition: all 0.3s ease;
     color:#B4C6EF;
     position: relative;
-    bottom: 3px;
+    bottom: 2px;
   }
   
   .page_btn:hover svg {
