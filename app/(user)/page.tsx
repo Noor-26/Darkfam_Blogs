@@ -10,7 +10,7 @@ import BlogPost from "../../components/BlogPost"
 
 
 
-export const query = groq`
+ const query = groq`
 *[_type == 'post']{
   ...,
   author->,
