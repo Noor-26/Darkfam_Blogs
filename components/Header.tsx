@@ -3,22 +3,37 @@ import { groq } from "next-sanity";
 import Head from "next/head"
 import Image from "next/image";
 import Link from "next/link"
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import imgUrl from "../lib/imgUrl";
 import ClientLink from "./ClientLink";
 
-const Header =   ({blogs}:any) => {
-  const [searchQuery, setQuery] = useState<string>('');
-// console.log(blogs)
-//Our search filter function
-  const searchFilter = (array:any) => {
-  return array.filter(
-    (el:any) => el.title.toLowerCase().includes(searchQuery)
-  )
+import { client } from "../lib/sanity.client";
+import { useSanity } from "../hooks/SanityContext";
+async function fetchHeaderData(): Promise<any | null> {
+  try {
+    const headerData = await client.fetch(`*[_type == "header"][0]`)
+    return headerData
+  } catch (error) {
+    console.error(error)
+    return null
   }
+}
 
-// //Applying our search filter function to our array of countries recieved from the API
-  const filtered = searchFilter(blogs)
+const Header =  () => {
+  const [searchQuery, setQuery] = useState<string>('');
+  const [sanityData, setSanityData] = useState([]);
+  
+  useEffect(() => {
+    const storedSanityData:any = localStorage.getItem('sanityData');
+    if (storedSanityData) {
+      setSanityData(JSON.parse(storedSanityData));
+    }
+  }, []);
+ 
+    // //Applying our search filter function to our array of countries recieved from the API
+    const filtered = sanityData.filter(
+      (el:any) => el.title.toLowerCase().includes(searchQuery))
+
 
 // Handling the input on our search bar
 const handleChange = (e:any) => {
@@ -51,7 +66,7 @@ setQuery(e.target.value)
                              onChange={handleChange}
                             id="search" type="text" placeholder="Search Blogs"/>
                     </div>
-                    {searchQuery.length>0 && filtered.map((blog:any) =>    <ClientLink route={`/author/${blog.author.name}`}><div className="py-2 text-sm">
+                   {searchQuery.length>0 && sanityData && filtered.map((blog:any) =>    <ClientLink route={`/posts/${blog.slug.current}`}><div onClick={() => setQuery("")}  className="py-2 text-sm">
                     <div className="flex justify-start items-center cursor-pointer text-gray-700 rounded-md hover:bg-[#1c1c1c] px-2 py-2 my-2">
                     <div className="avatar placeholder mx-1">
    <div className="rounded-full h-[40px]">
@@ -65,7 +80,7 @@ setQuery(e.target.value)
                      
                         
                     </div>
-                    </ClientLink>)  }
+                    </ClientLink>)  } 
                     
                 </div>
             </div>

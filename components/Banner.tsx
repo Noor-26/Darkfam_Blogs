@@ -1,5 +1,10 @@
+"use client"
 import { Satisfy } from '@next/font/google'
-const Banner = () => {
+import { useEffect } from 'react';
+const Banner = ({blogs}:any) => {
+  useEffect(() => {
+    localStorage.setItem('sanityData', JSON.stringify(blogs));
+  }, [blogs]);
   return (
     <div className="hero min-h-[80vh] bg-base-200">
     <div className="hero-content flex-col lg:flex-row-reverse">

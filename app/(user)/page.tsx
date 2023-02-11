@@ -1,3 +1,4 @@
+
 import Banner from "../../components/Banner"
 import {previewData} from 'next/headers'
 import {groq} from 'next-sanity'
@@ -6,6 +7,7 @@ import { PreviewSuspense } from "next-sanity/preview"
 import PreviewBlogList from "../../components/PreviewBlogList"
 import imgUrl from "../../lib/imgUrl"
 import BlogPost from "../../components/BlogPost"
+
 
 
 export const query = groq`
@@ -26,9 +28,11 @@ const page = async () => {
   }
 
   const blogs = await client.fetch(query)
+ 
+  
   return (
     <div>
-      <Banner/>
+      <Banner blogs={blogs}/>
      
       <div  className='w-full md:w-[70%] mx-auto grid gap-3 justify-center lg:grid-cols-2 px-4 py-10'>
 
