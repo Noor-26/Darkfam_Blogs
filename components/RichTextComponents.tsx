@@ -26,6 +26,8 @@ export const RichTextComponents = {
         h2: ({children}:any) => <h2 className="text-3xl md:text-5xl capitalize py-8 font-bold heading_text">{children}</h2>,
         h3: ({children}:any) => <h3 className="text-2xl md:text-4xl capitalize py-8 font-bold heading_text">{children}</h3>,
         h4: ({children}:any) => <h4 className="text-xl md:text-3xl capitalize py-8 font-bold heading_text">{children}</h4>,
+        p: ({children}:any) => <p className="text-[14px] md:text-[16px]">{children}</p>,
+
         
       },
       blockquote: ({children}: any) => <blockquote className="border-l border-primary p-5 my-4">{children}</blockquote>,

@@ -1,24 +1,11 @@
 "use client"
-import { groq } from "next-sanity";
 import Head from "next/head"
 import Image from "next/image";
 import Link from "next/link"
 import React, { useEffect, useState } from "react";
 import imgUrl from "../lib/imgUrl";
 import ClientLink from "./ClientLink";
-
-import { client } from "../lib/sanity.client";
-import { useSanity } from "../hooks/SanityContext";
 import { IoMdSearch } from "react-icons/io";
-async function fetchHeaderData(): Promise<any | null> {
-  try {
-    const headerData = await client.fetch(`*[_type == "header"][0]`)
-    return headerData
-  } catch (error) {
-    console.error(error)
-    return null
-  }
-}
 
 const Header =  () => {
   const [searchQuery, setQuery] = useState<string>('');

@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "pages/post/[slug].js", "components/MainHeader.tsx", "hooks/SanityContext.js"  ],
+, "pages/post/[slug].js", "components/MainHeader.tsx",  ],
   "exclude": [
     "node_modules"
   ]

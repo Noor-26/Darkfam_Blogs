@@ -30,6 +30,7 @@
   .page_btn {
     border: none;
     background: none;
+    white-space: nowrap;
   }
   
   .page_btn span {
@@ -88,6 +89,12 @@
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   }
   
+  @media (max-width:768px) {
+    .author_descrioptions > p{
+      font-size: 14px;
+      text-align: justify;
+    }
+  }
   
   
   

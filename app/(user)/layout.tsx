@@ -1,6 +1,4 @@
-import { groq } from 'next-sanity';
-import MainHeader from '../../components/MainHeader';
-import { client } from '../../lib/sanity.client';
+import Header from '../../components/Header';
 import '../../styles/globals.css';
 
 
@@ -23,7 +21,7 @@ export default async function RootLayout({
      
       
             <body >
-              <MainHeader />
+              <Header />
               {children}
               </body>
     </html>

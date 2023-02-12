@@ -7,7 +7,7 @@ import {IoIosArrowForward} from 'react-icons/io'
 
 const BlogPost = ({blog}:any) => {
   return (
-    <div className="card hover:-translate-y-6 transition ease-linear duration-150 bg-secondary card-compact shadow-xl">
+    <div className="card  bg-secondary card-compact shadow-xl">
       <div className='w-full h-52 relative'>
 
   <Image src={imgUrl(blog?.mainImage).url()} alt="blog images" className='w-[100%] h-52 object-cover relative mx-auto rounded-xl '  fill  />  
@@ -25,11 +25,11 @@ const BlogPost = ({blog}:any) => {
              <div className='flex items-center my-4 mr-4'>
              <div className="avatar placeholder mx-1">
    <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
-    <Image  src={imgUrl(blog?.author.image).url()} alt="author photo" className="relative" fill/>
+    <Image  src={imgUrl(blog?.author.image).url()} alt="author photo" className="relative rounded-full" fill/>
    
    </div>
  </div>
-   <p className="author_name my-auto mt-2">{blog?.author?.name}</p>
+   <p className="author_name my-auto mt-[0.6rem]">{blog?.author?.name}</p>
 
              </div>
              </ClientLink>
@@ -42,7 +42,7 @@ const BlogPost = ({blog}:any) => {
     <div className="flex flex-nowrap justify-between">
     <div>
     {
-                blog.categories.slice(0,2).map((category:any) => <div className="badge  gap-2 ml-1">
+                blog.categories.slice(0,2).map((category:any) => <div className="badge  gap-2 m-1">
                 <div className="badge badge-xs bg-[#fb5607] border-[#fb5607]"></div>
                <p className="text-[12px] inline text-white">{category.title}</p> 
               </div>
