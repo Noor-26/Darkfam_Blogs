@@ -60,14 +60,10 @@ setQuery(e.target.value)
                     <div className="avatar placeholder mx-1">
    <div className="rounded-full h-[40px]">
     <Image  src={imgUrl(blog?.mainImage).url()} alt="author photo" className="relative rounded-full" fill/>
-   
    </div>
  </div>
-                            <div className="flex-grow text-white line-clamp-2 font-medium px-2">{blog.title}</div>
-                           
+                            <div className="flex-grow text-white line-clamp-2 font-medium px-2">{blog.title}</div>          
                         </div>
-                     
-                        
                     </div>
                     </ClientLink>)  } 
                     
@@ -76,7 +72,7 @@ setQuery(e.target.value)
         </div>
     </div>
   </div>
-    <div className="navber-end ml-auto pr-10 block md:hidden " onClick={() => setshowSearch(!showSearch)}>
+    <div className="navber-end ml-auto pr-10 hidden " onClick={() => setshowSearch(!showSearch)}>
       <IoMdSearch className="text-[20px]"/>
     </div>
     
