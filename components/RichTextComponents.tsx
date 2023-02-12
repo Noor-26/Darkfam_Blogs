@@ -22,7 +22,7 @@ export const RichTextComponents = {
         checkmarks: ({children}:any) => <ol className="m-auto text-lg">{children}</ol>,
       },
       block : {
-        h1: ({children}:any) => <h1 className="text-4xl md:text-6xl heading_text capitalize py-8 font-bold">{children}</h1>,
+        h1: ({children}:any) => <h1 className="text-4xl md:text-6xl heading_text capitalize pb-8  font-bold">{children}</h1>,
         h2: ({children}:any) => <h2 className="text-3xl md:text-5xl capitalize py-8 font-bold heading_text">{children}</h2>,
         h3: ({children}:any) => <h3 className="text-2xl md:text-4xl capitalize py-8 font-bold heading_text">{children}</h3>,
         h4: ({children}:any) => <h4 className="text-xl md:text-3xl capitalize py-8 font-bold heading_text">{children}</h4>,
@@ -35,7 +35,7 @@ export const RichTextComponents = {
         link: ({children, value}:any) => {
           const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
           return (
-            <Link href={value.href} rel={rel} className="underline decoration-[#fb5607] hover:decoration-primary text-[17px] capitalize">
+            <Link href={value.href} rel={rel} className="underline decoration-[#fb5607] hover:decoration-primary text-[17px] capitalize" target="_blank">
               {children}
             </Link>
           )
