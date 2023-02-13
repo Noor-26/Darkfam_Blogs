@@ -24,13 +24,13 @@ const Author = async ({params:{name}} : Props) => {
   <div className="hero-content flex-col lg:flex-row">
     <div className='w-[55%] md:w-[35%]'>
 
-  <img src={imgUrl(details[0].author.image).url()}alt="blog image" className='object-contain blob w-[100%] '   />  
+  <img src={imgUrl(details[0]?.author?.image).url()}alt="blog image" className='object-contain blob w-[100%] '   />  
     </div>
     <div className='w-[100%] md:w-[70%] px-4'>
-      <h1 className="text-5xl heading_text text-[#fb5607] font-bold"> About {details[0].author.name}</h1>
+      <h1 className="text-5xl heading_text text-[#fb5607] font-bold"> About {details[0]?.author?.name}</h1>
       <div className='border-l-[#fb5607] border-l-2 pl-[10px] ml-[5px] mt-3 author_descrioptions'>
 
-      <PortableText  value={details[0].author.bio}  components={RichTextComponents} />
+      <PortableText  value={details[0]?.author?.bio}  components={RichTextComponents} />
       </div>
     </div> 
   </div>
