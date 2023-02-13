@@ -21,7 +21,7 @@ const Header =  () => {
  
     // //Applying our search filter function to our array of countries recieved from the API
     const filtered = sanityData.filter(
-      (el:any) => el.title.toLowerCase().includes(searchQuery))
+      (el:any) => el.title.toLowerCase().includes(searchQuery.toLowerCase()))
 
 
 // Handling the input on our search bar
@@ -79,7 +79,9 @@ setQuery(e.target.value)
         </div>
     </div>
   </div>
-    <div className="navber-end ml-auto pr-10 block md:hidden " onClick={() => setshowSearch(!showSearch)}>
+    <div className="navber-end ml-auto cursor-pointer pr-10 block md:hidden " onClick={() => {
+                      setshowSearch(!showSearch)
+                      setQuery("")}}>
       <IoMdSearch className="text-[20px]"/>
     </div>
     
@@ -104,7 +106,10 @@ setQuery(e.target.value)
                              onChange={handleChange}
                             id="search" type="text" placeholder="Search Blogs"/>
                     </div>
-                    {searchQuery.length>0 && sanityData && filtered.map((blog:any) =>   <div onClick={() => setQuery("")}  className="py-2 text-sm"> 
+                    <div className="max-h-[35vh] overflow-y-scroll mt-1">
+                    {searchQuery.length>0 && sanityData && filtered.map  ((blog:any) =>   <div onClick={() => {
+                      setshowSearch(!showSearch)
+                      setQuery("")}}  className="py-2 text-sm"> 
                    <ClientLink route={`/posts/${blog.slug.current}`}>
                     
                     <div className="flex justify-start items-center cursor-pointer text-gray-700 rounded-md hover:bg-[#1c1c1c] px-2 py-2 my-2">
@@ -119,7 +124,7 @@ setQuery(e.target.value)
                     </div>
                     
                     )  }  
-                    
+                    </div>
                 </div>
             </div>
         </div>
