@@ -14,7 +14,7 @@ type Props = {
 
 const Author = async ({params:{name}} : Props) => {
     const query = groq `
-    *[_type == "post" && author._ref in *[_type =="author" && name == "Darkfam"]._id ]{...,author->,  categories[]->,}
+    *[_type == "post" && author._ref in *[_type =="author" && name == $name ||"Darkfam" ]._id ]{...,author->,  categories[]->,}
     `
     const details : any = await client.fetch(query,{name})
 
