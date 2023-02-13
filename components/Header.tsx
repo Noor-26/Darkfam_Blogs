@@ -40,9 +40,9 @@ setQuery(e.target.value)
   <div className="w-full max-w-screen-xl mx-auto px-6 absolute top-[-30px] z-[999] ">
         <div className="flex justify-center pt-4 px-3 ">
             <div className="w-full max-w-md">
-                <div className="bg-secondary shadow-md rounded-lg px-3 py-2 mb-4">
+                <div className="bg-secondary shadow-md rounded-lg px-3 py-2 mb-4 ">
                    
-                    <div className="flex items-center bg-gray-200 rounded-md">
+                    <div className="flex items-center bg-gray-200 rounded-md ">
                         <div className="pl-2">
                             <svg className="fill-current text-gray-500 w-6 h-6" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
@@ -55,7 +55,11 @@ setQuery(e.target.value)
                              onChange={handleChange}
                             id="search" type="text" placeholder="Search Blogs"/>
                     </div>
-                   {searchQuery.length>0 && sanityData && filtered.map((blog:any) =>    <ClientLink route={`/posts/${blog.slug.current}`}><div onClick={() => setQuery("")}  className="py-2 text-sm">
+                    <div className="max-h-[35vh] overflow-y-scroll mt-1">
+
+                   {searchQuery.length>0 && sanityData && filtered.map((blog:any) =>   <div onClick={() => setQuery("")}  className="py-2 text-sm"> 
+                   <ClientLink route={`/posts/${blog.slug.current}`}>
+                    
                     <div className="flex justify-start items-center cursor-pointer text-gray-700 rounded-md hover:bg-[#1c1c1c] px-2 py-2 my-2">
                     <div className="avatar placeholder mx-1">
    <div className="rounded-full h-[40px]">
@@ -64,15 +68,18 @@ setQuery(e.target.value)
  </div>
                             <div className="flex-grow text-white line-clamp-2 font-medium px-2">{blog.title}</div>          
                         </div>
+                    </ClientLink>
                     </div>
-                    </ClientLink>)  } 
+                    
+                    )  } 
+                    </div>
                     
                 </div>
             </div>
         </div>
     </div>
   </div>
-    <div className="navber-end ml-auto pr-10 hidden " onClick={() => setshowSearch(!showSearch)}>
+    <div className="navber-end ml-auto pr-10 block md:hidden " onClick={() => setshowSearch(!showSearch)}>
       <IoMdSearch className="text-[20px]"/>
     </div>
     
@@ -97,21 +104,21 @@ setQuery(e.target.value)
                              onChange={handleChange}
                             id="search" type="text" placeholder="Search Blogs"/>
                     </div>
-                   {searchQuery.length>0 && sanityData && filtered.map((blog:any) =>    <ClientLink route={`/posts/${blog.slug.current}`}><div onClick={() => setQuery("")}  className="py-2 text-sm">
+                    {searchQuery.length>0 && sanityData && filtered.map((blog:any) =>   <div onClick={() => setQuery("")}  className="py-2 text-sm"> 
+                   <ClientLink route={`/posts/${blog.slug.current}`}>
+                    
                     <div className="flex justify-start items-center cursor-pointer text-gray-700 rounded-md hover:bg-[#1c1c1c] px-2 py-2 my-2">
                     <div className="avatar placeholder mx-1">
    <div className="rounded-full h-[40px]">
     <Image  src={imgUrl(blog?.mainImage).url()} alt="author photo" className="relative rounded-full" fill/>
-   
    </div>
  </div>
-                            <div className="flex-grow text-white line-clamp-2 font-medium px-2">{blog.title}</div>
-                           
+                            <div className="flex-grow text-white line-clamp-2 font-medium px-2">{blog.title}</div>          
                         </div>
-                     
-                        
+                    </ClientLink>
                     </div>
-                    </ClientLink>)  } 
+                    
+                    )  }  
                     
                 </div>
             </div>
