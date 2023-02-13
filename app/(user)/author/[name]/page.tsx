@@ -24,7 +24,7 @@ const Author = async ({params:{name}} : Props) => {
   <div className="hero-content flex-col lg:flex-row">
     <div className='w-[55%] md:w-[35%]'>
 
-  <img src={imgUrl(details[0]?.author?.image).url()}alt="blog image" className='object-contain blob w-[100%] '   />  
+  {details[0]?.author && <img src={imgUrl(details[0]?.author?.image).url()}alt="blog image" className='object-contain blob w-[100%] '   /> } 
     </div>
     <div className='w-[100%] md:w-[70%] px-4'>
       <h1 className="text-5xl heading_text text-[#fb5607] font-bold"> About {details[0]?.author?.name}</h1>
